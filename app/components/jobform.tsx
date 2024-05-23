@@ -1,5 +1,9 @@
 import { db } from "../db";
 
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+
 export default function JobForm() {
   async function createNewEntry(formData: FormData) {
     "use server";
@@ -46,176 +50,219 @@ export default function JobForm() {
   }
 
   return (
-    <form action={createNewEntry}>
-      <h3 className="font-bold m-3">Enter details</h3>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <form
+        action={createNewEntry}
+        className="max-w-lg w-full p-6 bg-white shadow-md rounded-md space-y-4"
+      >
+        <h3 className="font-bold text-center text-lg mb-4">Enter details</h3>
 
-      <div>
-        <div>
-          <label htmlFor="name" className="w-12">
-            Name
-          </label>
-          <input
-            name="name"
-            title="name"
-            type="text"
-            className="border rounded p-2 w-half"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <Label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Name
+            </Label>
+            <Input
+              name="name"
+              title="name"
+              type="text"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="minSalary"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Min Salary
+            </Label>
+            <Input
+              name="minSalary"
+              title="minSalary"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="maxSalary"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Max Salary
+            </Label>
+            <Input
+              name="maxSalary"
+              title="maxSalary"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="experience"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Experience
+            </Label>
+            <Input
+              name="experience"
+              title="experience"
+              type="number"
+              step="0.1"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="rating"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Rating
+            </Label>
+            <Input
+              name="rating"
+              title="rating"
+              type="number"
+              step="0.1"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="minExpectedSal"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Min Expected Salary
+            </Label>
+            <Input
+              name="minExpectedSal"
+              title="minExpectedSal"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="maxExpectedSal"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Max Expected Salary
+            </Label>
+            <Input
+              name="maxExpectedSal"
+              title="maxExpectedSal"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="lastSalary"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Last Salary
+            </Label>
+            <Input
+              name="lastSalary"
+              title="lastSalary"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="hiringFee"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Hiring Fee
+            </Label>
+            <Input
+              name="hiringFee"
+              title="hiringFee"
+              type="number"
+              step="0.1"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="evalScore"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Evaluation Score
+            </Label>
+            <Input
+              name="evalScore"
+              title="evalScore"
+              type="number"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="skills"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Skills
+            </Label>
+            <Input
+              name="skills"
+              title="skills"
+              type="text"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="startDate"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Start Date
+            </Label>
+            <Input
+              name="startDate"
+              title="startDate"
+              type="date"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
+
+          <div>
+            <Label
+              htmlFor="endDate"
+              className="block text-sm font-medium text-gray-700"
+            >
+              End Date
+            </Label>
+            <Input
+              name="endDate"
+              title="endDate"
+              type="date"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+            />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="minSalary" className="w-12">
-            Min Salary
-          </label>
-          <input
-            name="minSalary"
-            title="minSalary"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
+        <div className="text-center mt-6">
+          <Button type="submit" className="bg-blue-500 text-white p-2 rounded">
+            Submit
+          </Button>
         </div>
-
-        <div>
-          <label htmlFor="maxSalary" className="w-12">
-            Max Salary
-          </label>
-          <input
-            name="maxSalary"
-            title="maxSalary"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="experience" className="w-12">
-            Experience
-          </label>
-          <input
-            name="experience"
-            title="experience"
-            type="number"
-            className="border rounded p-2 w-half"
-            step="0.1"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="rating" className="w-12">
-            Rating
-          </label>
-          <input
-            name="rating"
-            title="rating"
-            type="number"
-            className="border rounded p-2 w-half"
-            step="0.1"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="minExpectedSal" className="w-12">
-            Min Expected Salary
-          </label>
-          <input
-            name="minExpectedSal"
-            title="minExpectedSal"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="maxExpectedSal" className="w-12">
-            Max Expected Salary
-          </label>
-          <input
-            name="maxExpectedSal"
-            title="maxExpectedSal"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="lastSalary" className="w-12">
-            Last Salary
-          </label>
-          <input
-            name="lastSalary"
-            title="lastSalary"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="hiringFee" className="w-12">
-            Hiring Fee
-          </label>
-          <input
-            name="hiringFee"
-            title="hiringFee"
-            type="number"
-            className="border rounded p-2 w-half"
-            step="0.1"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="evalScore" className="w-12">
-            Evaluation Score
-          </label>
-          <input
-            name="evalScore"
-            title="evalScore"
-            type="number"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="skills" className="w-12">
-            Skills
-          </label>
-          <input
-            name="skills"
-            title="skills"
-            type="text"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="startDate" className="w-12">
-            Start Date
-          </label>
-          <input
-            name="startDate"
-            title="startDate"
-            type="date"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="endDate" className="w-12">
-            End Date
-          </label>
-          <input
-            name="endDate"
-            title="endDate"
-            type="date"
-            className="border rounded p-2 w-half"
-          />
-        </div>
-
-        <button
-          type="submit"
-          className="mt-4 bg-blue-500 text-white p-2 rounded"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
