@@ -1,58 +1,59 @@
-import { db } from "../db";
-
+import { db } from "@/src/db";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { CreateNewEntry } from "./createEntry";
 
 export default function JobForm() {
-  async function createNewEntry(formData: FormData) {
-    "use server";
+  <CreateNewEntry formData={FormData} />;
+  // async function createNewEntry(formData: FormData) {
+  //   "use server";
 
-    try {
-      // Input validation and conversion
-      const name = formData.get("name") as string;
-      const minSalary = parseInt(formData.get("minSalary") as string);
-      const maxSalary = parseInt(formData.get("maxSalary") as string);
-      const experience = parseFloat(formData.get("experience") as string);
-      const rating = parseFloat(formData.get("rating") as string);
-      const minExpectedSal = parseInt(formData.get("minExpectedSal") as string);
-      const maxExpectedSal = parseInt(formData.get("maxExpectedSal") as string);
-      const lastSalary = parseInt(formData.get("lastSalary") as string);
-      const hiringFee = parseFloat(formData.get("hiringFee") as string);
-      const evalScore = parseInt(formData.get("evalScore") as string);
-      const skills = formData.get("skills") as string;
-      const startDate = new Date(formData.get("startDate") as string);
-      const endDate = new Date(formData.get("endDate") as string);
+  //   try {
+  //     // Input validation and conversion
+  //     const name = formData.get("name") as string;
+  //     const minSalary = parseInt(formData.get("minSalary") as string);
+  //     const maxSalary = parseInt(formData.get("maxSalary") as string);
+  //     const experience = parseFloat(formData.get("experience") as string);
+  //     const rating = parseFloat(formData.get("rating") as string);
+  //     const minExpectedSal = parseInt(formData.get("minExpectedSal") as string);
+  //     const maxExpectedSal = parseInt(formData.get("maxExpectedSal") as string);
+  //     const lastSalary = parseInt(formData.get("lastSalary") as string);
+  //     const hiringFee = parseFloat(formData.get("hiringFee") as string);
+  //     const evalScore = parseInt(formData.get("evalScore") as string);
+  //     const skills = formData.get("skills") as string;
+  //     const startDate = new Date(formData.get("startDate") as string);
+  //     const endDate = new Date(formData.get("endDate") as string);
 
-      // Create new record in db
-      const form = await db.form.create({
-        data: {
-          name,
-          minSalary,
-          maxSalary,
-          experience,
-          rating,
-          minExpectedSal,
-          maxExpectedSal,
-          lastSalary,
-          hiringFee,
-          evalScore,
-          skills,
-          startDate,
-          endDate,
-        },
-      });
+  //     // Create new record in db
+  //     const form = await db.form.create({
+  //       data: {
+  //         name,
+  //         minSalary,
+  //         maxSalary,
+  //         experience,
+  //         rating,
+  //         minExpectedSal,
+  //         maxExpectedSal,
+  //         lastSalary,
+  //         hiringFee,
+  //         evalScore,
+  //         skills,
+  //         startDate,
+  //         endDate,
+  //       },
+  //     });
 
-      console.log(form);
-    } catch (error) {
-      console.error("Error creating form entry:", error);
-    }
-  }
+  //     console.log(form);
+  //   } catch (error) {
+  //     console.error("Error creating form entry:", error);
+  //   }
+  // }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <form
-        action={createNewEntry}
+        action={CreateNewEntry}
         className="max-w-lg w-full p-6 bg-white shadow-md rounded-md space-y-4"
       >
         <h3 className="font-bold text-center text-lg mb-4">Enter details</h3>

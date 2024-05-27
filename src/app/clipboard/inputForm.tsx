@@ -1,9 +1,7 @@
-"use client";
-
 import { useState } from "react";
-import Dropdown from "./views/dropdown";
+import Dropdown from "./dropdown";
 
-export default function DropDown() {
+export default function InputForm() {
   const [name, setName] = useState("");
   const [salary, setSalary] = useState("");
 
@@ -14,7 +12,6 @@ export default function DropDown() {
   function handleSalary(e) {
     setSalary(e.target.value);
   }
-
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
