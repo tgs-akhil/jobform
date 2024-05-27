@@ -30,5 +30,5 @@ model Form {
 model Shopping{
   id Int @id @default(autoincrement())
   date String
-  budget Int
+  budget BigInt
 }
